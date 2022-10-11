@@ -1,0 +1,122 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: #314755;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #26a0da, #1a91db);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #26a0da, #75b9e3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 450px;
+  width: 100%;
+  height: 300px;
+  border-radius: 16px;
+  background-color: #FFF;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+.form-group {
+  position: relative;
+  width: 260px;
+  margin: 5px;
+  font-size: 1rem;
+}
+
+.form-group a {
+  height: 25px;
+  position: absolute;
+  right: 0;
+  text-decoration: none;
+  color: #004fd8;
+  border: 1px solid transparent;
+  z-index: 1;
+}
+
+.form-group a::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #004fd8;
+  bottom: 2px;
+
+  transition: all .1s ease-in-out;
+}
+
+.form-group a:hover::before {
+  width: 100%;
+}
+
+.form-group:nth-child(2){
+  margin-top: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 30px;
+  padding-left: 6px;
+  outline: none;
+  border: 1px solid #797979;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-group input[type="submit"] {
+  height: 40px;
+  border: none;
+  margin: 20px 0 -10px;
+  padding-left: 0;
+  background-color: rgb(74, 74, 255);
+  color: #FFF;
+  cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: rgb(61, 61, 200);
+}
+
+.form-group input:not([type="submit"]):hover,
+.form-group input:not([type="submit"]):focus {
+  border-color: #26a0da;
+}
+
+.pop-up {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 450px;
+  width: 100%;
+  top: 80px;
+
+  height: 50px;
+  background-color: #FFF;
+  border-radius: 10px;
+  animation: pop-up .3s linear 0s;
+  color: #ff3333;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+
+  text-shadow: 0 0 4px rgba(255, 51, 51, 0.6);
+}
+
+
+@keyframes pop-up {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  100% {
+    top: 80px
+  }
+}
