@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
   incorrectCredencials = false;
   userNotExist = false;
 
+
+
   constructor(private loginService: LoginService, private router: Router) { }
 
   submitMethod() {
@@ -49,27 +51,30 @@ export class LoginComponent implements OnInit {
       },
       error: (error) => {
         if(error.status === 403) {
+          
           this.incorrectCredencials = true;
-
-          const myInterval = setTimeout(() => {
+          setTimeout(() => {
             this.incorrectCredencials = false;
-            clearTimeout(myInterval)
           }, 2000)
           
         } else if(error.status === 404) {
           this.userNotExist = true;
+          setTimeout(() => {
+            this.userNotExist = false;
+          }, 2000)
         }
       }
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.autenticacaoForm = new FormGroup({
       id: new FormControl(''),
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
   }
+
 
   get username() {
     return this.autenticacaoForm.get('username');
