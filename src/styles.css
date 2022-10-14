@@ -9,3 +9,21 @@
 body {
   font-family: 'Roboto Mono', monospace;
 }
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.warning-invalid {
+  position: relative;
+  font-size: 12px;
+  font-weight: 600;
+  color: #d33434;
+  margin: -10px 0 5px;
+  display: flex;
+  justify-content: flex-end;
+}

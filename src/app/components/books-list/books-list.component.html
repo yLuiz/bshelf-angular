@@ -1,7 +1,14 @@
-<p>books-list works!</p>
-<ul>
-  <li *ngFor="let book of books">
-    <img width="50px" src="{{book.url_img}}" alt="">
-    {{book.title}}
-  </li>
-</ul>
+<section class="book-list-container">
+  <h1>Bem vindo, {{user.usua_nome}}</h1>
+  <h2>Seus livros:</h2>
+  <ul class="books-list">
+    <li class="book-item" *ngFor="let book of books">
+      <a routerLink="book/{{book._id}}">
+        <div class="book-image">
+          <img width="50px" src="{{book.url_img}}" alt="">
+        </div>
+        <p>{{book.title}}</p>
+      </a>
+    </li>
+  </ul>
+</section>

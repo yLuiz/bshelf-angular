@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode';
+import { environment } from 'src/environments/environment';
+import { IUser } from 'src/app/interfaces/IUser';
+import { IResponse } from 'src/app/interfaces/IResponse';
 
 
 interface IRequest {
@@ -21,14 +24,12 @@ interface IPayload {
 })
 export class LoginService {
 
-  api_url = 'http://147.1.5.47:3000'
-
   constructor(
     private http: HttpClient
   ) {}
 
   login({usua_login, usua_senha}: IRequest): Observable<any> {
-    return this.http.post<any>(this.api_url + '/usuario/login', { usua_login, usua_senha })
+    return this.http.post<any>(environment.api_url + '/usuario/login', { usua_login, usua_senha })
   }
 
   async getDateExpiresToken(token: string): Promise<Date | null> {

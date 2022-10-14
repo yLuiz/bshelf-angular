@@ -30,8 +30,6 @@ export class LoginComponent implements OnInit {
   incorrectCredencials = false;
   userNotExist = false;
 
-
-
   constructor(private loginService: LoginService, private router: Router) { }
 
   submitMethod() {

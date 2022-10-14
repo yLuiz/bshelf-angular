@@ -1,10 +1,12 @@
-<header>
+<header class="header">
   <nav>
     <ul>
       <li>
-        <a>Novo livro</a>
+        <a routerLink="new-book">Novo livro</a>
+      </li>
+      <li>
+        <button (click)="logout()">Sair</button>
       </li>
     </ul>
-    <button (click)="logout()">Sair</button>
   </nav>
 </header>
