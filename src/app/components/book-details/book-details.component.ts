@@ -11,17 +11,20 @@ import { BookService } from 'src/app/services/book/book.service';
 export class BookDetailsComponent implements OnInit {
 
   book!: IBook;
+  showLoader = true;
 
+  
   constructor(
     private router: ActivatedRoute,
     private bookService: BookService
-  ) { }
-
-  ngOnInit(): void {
+    ) { }
+    
+    ngOnInit(): void {
 
     const bookId: string = this.router.snapshot.paramMap.get('id') || '';
     this.bookService.getBook(bookId).subscribe(book => {
       this.book = book;
+      this.showLoader = false;
       console.log(book);
     });
 

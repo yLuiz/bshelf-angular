@@ -8,9 +8,19 @@ import { IBook } from 'src/app/interfaces/IBook';
 })
 export class BookService {
 
+  showBookForm: boolean = false;
+
   constructor(
     private http: HttpClient
   ) { }
+
+  setShowBookForm() {
+    this.showBookForm = !this.showBookForm;
+  }
+
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>('https://api-bshelf.herokuapp.com/book/', book);
+  }
 
   getAllBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>('https://api-bshelf.herokuapp.com/book/');

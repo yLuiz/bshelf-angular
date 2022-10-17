@@ -1,4 +1,25 @@
+<div *ngIf="showLoader else detailsBook" class="loader"></div>
 
-<a routerLink="">Voltar</a>
-<img width="150px" src="{{book.url_img}}" alt="">
-<h1>{{book.title}}</h1>
+<ng-template #detailsBook>
+  <a routerLink="">Voltar</a>
+  <section class="details-container">
+    <div class="image-content">
+      <div>
+        <img width="150px" src="{{book.url_img}}" alt="Capa do livro {{book.title}}">
+      </div>
+    </div>
+    <h1>{{book.title}}</h1>
+    <p class="p-description">
+      {{book.description}}
+    </p>
+    <div class="actions">
+      <button>
+        Editar
+      </button>
+      <button>
+        Deletar
+      </button>
+    </div>
+  </section>
+</ng-template>
+

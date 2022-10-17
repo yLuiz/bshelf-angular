@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/interfaces/IUser';
 import { BookService } from 'src/app/services/book/book.service';
@@ -13,6 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class BooksListComponent implements OnInit {
 
   // api_url = 'https://api-bshelf.herokuapp.com'
+  showLoader = true;
 
   user: IUser = {
     usua_nome: '',
@@ -23,12 +24,16 @@ export class BooksListComponent implements OnInit {
 
   books!: any[];
 
+  showBookForm = this.bookService.showBookForm;
+
   constructor(
     private userService: UserService,
     private bookService: BookService
   ) { }
 
   ngOnInit(): void {
+
+    this.showBookForm = this.bookService.showBookForm;
 
     const token = localStorage.getItem('token');
     if(token)
@@ -39,8 +44,8 @@ export class BooksListComponent implements OnInit {
     this.bookService.getAllBooks().subscribe({
       next: response => {
         this.books = response.map(book => book);
+        this.showLoader = false;
       }
     });
   }
-
 }

@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MessageComponent } from './components/messages/messages.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { BookFormComponent } from './components/book-form/book-form.component';
+import { NewBookComponent } from './components/new-book/new-book.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,17 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
     LoginComponent,
     RegisterComponent,
     MessageComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    BookFormComponent,
+    NewBookComponent,
+  
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

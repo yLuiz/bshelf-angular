@@ -9,8 +9,13 @@ nav ul {
 }
 
 nav ul li button {
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
   border: none;
-  width: 50px;
+  width: 140px;
   height: 20px;
   background-color: transparent;
   color: #FFF;
@@ -28,4 +33,9 @@ nav ul li a {
 nav ul li button:hover,
 nav ul li a:hover {
   color: #b6b6b6;
+}
+
+nav ul li .logout-btn {
+  
+  font-weight: 400;
 }
