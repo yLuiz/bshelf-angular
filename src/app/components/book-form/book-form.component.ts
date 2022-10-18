@@ -11,14 +11,13 @@ import { BookService } from 'src/app/services/book/book.service';
 export class BookFormComponent implements OnInit {
 
   @Output() onSubmit = new EventEmitter<IBook>();
-
-  
   @Input()
   btnText = 'Submit';
   
   @Input()
   book: IBook | null = null;
   
+  showLoader = false;
   bookForm!: FormGroup;
   constructor(
     public bookService: BookService
@@ -33,13 +32,29 @@ export class BookFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.bookForm = new FormGroup({
-      _id: new FormControl('', [Validators.required]),
-      title: new FormControl('', [Validators.required]),
-      author: new FormControl('', [Validators.required]),
-      pages: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      image: new FormControl('', [Validators.required]),
+      _id: new FormControl(this.book ? this.book._id : '', [Validators.required]),
+      title: new FormControl(this.book ? this.book.title : '', [Validators.required]),
+      author: new FormControl(this.book ? this.book.author : '', [Validators.required]),
+      pages: new FormControl(this.book ? this.book.pages : '', [Validators.required]),
+      description: new FormControl(this.book ? this.book.description : '', [Validators.required]),
+      image: new FormControl(''),
     });
+  }
+
+  get title() {
+    return this.bookForm.get('title');
+  }
+
+  get author() {
+    return this.bookForm.get('author');
+  }
+
+  get pages() {
+    return this.bookForm.get('pages');
+  }
+
+  get description() {
+    return this.bookForm.get('description');
   }
 
   onFileSelected(event: any) {

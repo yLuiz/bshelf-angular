@@ -7,19 +7,40 @@ import { IBook } from 'src/app/interfaces/IBook';
   providedIn: 'root'
 })
 export class BookService {
-
-  showBookForm: boolean = false;
+  showLoaderCreateAndUpdate: boolean = false;
+  showBookFormCreate: boolean = false;
+  showBookFormEdit: boolean = false;
+  showRemovePopUp: boolean = false;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  setShowBookForm() {
-    this.showBookForm = !this.showBookForm;
+  setShowBookFormEdit() {
+    this.showBookFormEdit = !this.showBookFormEdit;
   }
 
-  createBook(book: IBook): Observable<IBook> {
-    return this.http.post<IBook>('https://api-bshelf.herokuapp.com/book/', book);
+  setShowBookFormCreate() {
+    if(!this.showBookFormEdit) this.showBookFormCreate = !this.showBookFormCreate;
+  }
+
+  setShowRemovePopUp() {
+   this.showRemovePopUp = !this.showRemovePopUp;
+  }
+
+  setShowLoaderCreateAndUpdate() {
+   this.showLoaderCreateAndUpdate = !this.showLoaderCreateAndUpdate;
+  }
+
+  closeForm() {
+    console.log("closeForm");
+    this.showBookFormCreate = false;
+    this.showRemovePopUp = false;
+    this.showBookFormEdit = false;
+  }
+
+  createBook(book: FormData): Observable<FormData> {
+    return this.http.post<FormData>('https://api-bshelf.herokuapp.com/book/', book);
   }
 
   getAllBooks(): Observable<IBook[]> {
@@ -31,7 +52,7 @@ export class BookService {
   }
 
   updateBook(_id: string, book: IBook): Observable<IBook> {
-    return this.http.put<IBook>('https://api-bshelf.herokuapp.com/book/' + _id, book);
+    return this.http.patch<IBook>('https://api-bshelf.herokuapp.com/book/' + _id, book);
   }
 
   removeBook(_id: string): Observable<void> {

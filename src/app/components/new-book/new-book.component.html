@@ -1,6 +1,6 @@
-<div class="container" *ngIf="bookService.showBookForm">
+<div class="container" *ngIf="bookService.showBookFormCreate">
   <app-book-form
-  class="new-form"
+  class="form"
   [btnText]="btnText"
   (onSubmit)="createHandler($event)"
 ></app-book-form>

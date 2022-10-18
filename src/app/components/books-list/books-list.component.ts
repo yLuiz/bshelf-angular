@@ -24,7 +24,7 @@ export class BooksListComponent implements OnInit {
 
   books!: any[];
 
-  showBookForm = this.bookService.showBookForm;
+  showBookForm = this.bookService.showBookFormCreate;
 
   constructor(
     private userService: UserService,
@@ -33,7 +33,7 @@ export class BooksListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.showBookForm = this.bookService.showBookForm;
+    this.showBookForm = this.bookService.showBookFormCreate;
 
     const token = localStorage.getItem('token');
     if(token)

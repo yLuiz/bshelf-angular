@@ -14,6 +14,7 @@ import { MessageComponent } from './components/messages/messages.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { BookFormComponent } from './components/book-form/book-form.component';
 import { NewBookComponent } from './components/new-book/new-book.component';
+import { BookEditComponent } from './components/book-edit/book-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NewBookComponent } from './components/new-book/new-book.component';
     BookDetailsComponent,
     BookFormComponent,
     NewBookComponent,
+    BookEditComponent,
   
   ],
   imports: [

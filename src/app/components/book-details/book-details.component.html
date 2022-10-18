@@ -1,5 +1,7 @@
 <div *ngIf="showLoader else detailsBook" class="loader"></div>
 
+<app-book-edit></app-book-edit>
+
 <ng-template #detailsBook>
   <a routerLink="">Voltar</a>
   <section class="details-container">
@@ -13,13 +15,21 @@
       {{book.description}}
     </p>
     <div class="actions">
-      <button>
+      <button (click)="bookService.setShowBookFormEdit()">
         Editar
       </button>
-      <button>
+      <button (click)="bookService.setShowRemovePopUp()">
         Deletar
       </button>
     </div>
+    <div class="container" *ngIf="bookService.showRemovePopUp">
+      <div class="pop-up-delete">
+        <p>Remover <span>{{book.title}}</span>?</p>
+        <div class="options">
+          <button (click)="deleteHandle()">Sim</button>
+          <button (click)="bookService.closeForm()">Não</button>
+        </div>
+      </div>
+    </div>
   </section>
 </ng-template>
-

@@ -24,7 +24,7 @@ export class NewBookComponent implements OnInit {
     bookFormData.append('pages', book.pages);
     bookFormData.append('image', book.url_img);
 
-    this.bookService.createBook(book).subscribe();
+    this.bookService.createBook(bookFormData).subscribe();
   }
 
   ngOnInit(): void {}

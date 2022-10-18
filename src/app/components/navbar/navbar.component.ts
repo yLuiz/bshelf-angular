@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   addBook() {
-    this.bookService.setShowBookForm();
+    this.bookService.setShowBookFormCreate();
   }
 
   ngOnInit(): void {
