@@ -28,15 +28,14 @@ import { BookEditComponent } from './components/book-edit/book-edit.component';
     BookDetailsComponent,
     BookFormComponent,
     NewBookComponent,
-    BookEditComponent,
-  
+    BookEditComponent,  
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

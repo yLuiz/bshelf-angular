@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* @import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/primeng.min.css"; */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 * {
   margin: 0;
@@ -19,13 +24,13 @@ a {
 }
 
 .warning-invalid {
-  position: relative;
   font-size: 12px;
   font-weight: 600;
   color: #d33434;
   margin: -10px 0 5px;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .container {
@@ -34,14 +39,30 @@ a {
   align-items: center;
   justify-content: center;
   left: 0;
-  top: 50px;
+  top: 0px;
   width: 100vw;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 0px);
   overflow: hidden;
   background-color: rgba(118, 118, 118, 0.6);
 
   animation: fade .2s linear;
 }
+
+.container-delete {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.6);
+
+  animation: fade .2s linear;
+}
+
 
 .form {
   display: flex;
@@ -49,14 +70,15 @@ a {
   justify-content: center;
 
   position: absolute;
-  top: 80px;
+  top: 100px;
   max-width: 420px;
   width: 100%;
-  height: 600px;
+  max-height: 800px;
 
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  padding-bottom: 20px;
 
   animation: slide-down .15s cubic-bezier(.17,.67,.83,.67);
 }
@@ -133,6 +155,15 @@ a {
   top: 190px;
   left: calc(50% - 24px);
 }
+
+.top-5 {
+  top: 5px;
+}
+
+.left-0 {
+  left: 0;
+}
+
 .loader::before {
   content: "";
   box-sizing: border-box;

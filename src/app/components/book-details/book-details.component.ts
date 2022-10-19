@@ -21,15 +21,17 @@ export class BookDetailsComponent implements OnInit {
     ) { }
     
     deleteHandle() {
-      // this.bookService.removeBook(this.id).subscribe({
-      //   next: () => {
-      //     this.bookService.closeForm();
-      //     this.router.navigate(['']);
-      //   },
-      //   error: (err) => {
-      //     console.log(err);
-      //   }
-      // });
+      this.bookService.setShowLoaderCreateAndUpdate();
+      this.bookService.removeBook(this.id).subscribe({
+        next: () => {
+          this.bookService.closeForm();
+          this.bookService.setShowLoaderCreateAndUpdate();
+          this.router.navigate(['']);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
     }
 
     ngOnInit(): void {

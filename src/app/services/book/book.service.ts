@@ -39,8 +39,8 @@ export class BookService {
     this.showBookFormEdit = false;
   }
 
-  createBook(book: FormData): Observable<FormData> {
-    return this.http.post<FormData>('https://api-bshelf.herokuapp.com/book/', book);
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>('https://api-bshelf.herokuapp.com/book/', book);
   }
 
   getAllBooks(): Observable<IBook[]> {

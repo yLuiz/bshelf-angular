@@ -16,15 +16,23 @@ export class NewBookComponent implements OnInit {
   ) { }
 
   createHandler(book: IBook) {
-    const bookFormData = new FormData();
 
+    console.log(book);
+    const bookFormData = new FormData();
     bookFormData.append('title', book.title);
-    bookFormData.append('description', book.description);
     bookFormData.append('author', book.author);
     bookFormData.append('pages', book.pages);
+    bookFormData.append('description', book.description);
     bookFormData.append('image', book.url_img);
 
-    this.bookService.createBook(bookFormData).subscribe();
+    this.bookService.setShowLoaderCreateAndUpdate();
+    this.bookService.createBook(book).subscribe({
+      next: () => {
+        this.bookService.closeForm();
+        location.reload();
+        this.bookService.setShowLoaderCreateAndUpdate();
+      }
+    });
   }
 
   ngOnInit(): void {}

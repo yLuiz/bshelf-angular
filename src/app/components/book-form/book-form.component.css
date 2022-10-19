@@ -1,3 +1,8 @@
+.form-book {
+  width: 100%;
+  max-height: 800px;
+}
+
 .form-book .btn-close {
   position: absolute;
   display: flex;
@@ -40,13 +45,17 @@
   transition: all .2s ease-in-out;
 }
 
+form{
+  padding: 0 20px;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  width: 350px;
-  margin-top: 100px;
+  min-width: 100%;
+  margin-top: 170px;
 }
 
 .form-group {
@@ -87,7 +96,7 @@
 }
 
 #description {
-  height: 90px;
+  height: 160px;
   resize: none;
 }
 
@@ -153,17 +162,24 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 .form-group.file-input {
   display: flex;
+  position: relative;
   align-items: flex-end;
   justify-content: center;
   position: absolute;
   width: 100%;
   height: 170px;
-  top: 10px;
+  top: 0px;
   left: 0;
+
 }
 
 .form-group .label-file {
-  position: relative;
+  position: absolute;
+  
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  margin-top: 30px;
 
   user-select: none;
 
@@ -172,33 +188,26 @@ textarea::-webkit-scrollbar-thumb:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-left: -10px;
-  width: 130px;
-  height: 131px;
+  width: 90px;
+  height: 91px;
   color: #363636;
   cursor: pointer;
   z-index: 1;
-
   border-radius: 18px;
 
 }
 
 .form-group .label-file img {
   position: absolute;
-  top: -10px;
-  left: 0.5px;
-  width: 156px;
+  top: -5px;
+  left: 1px;
+  width: 106px;
 }
 
 @media (max-width: 420px) {
-
-  .input-container {
-    max-width: 260px;
-    padding: 0 20px;
-  }
-
-  .form-group .input {
+  .form-group .input-container .input {
     padding-left: 10px;
+    max-width: 200px;
     height: 28px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -206,6 +215,17 @@ textarea::-webkit-scrollbar-thumb:hover {
     outline: none;
 
     transition: all .2s ease-in-out;
+  }
+
+  .form-group .label-file {
+    max-width: 100px;
+    max-height: 108px;
+
+  }
+
+  .form-group .label-file img {
+    top: -7px;
+    max-width: 126px;
   }
 }
 

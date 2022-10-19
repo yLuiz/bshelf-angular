@@ -25,14 +25,14 @@ export class BookFormComponent implements OnInit {
 
   submitMethod() {
     if(this.bookForm.invalid) return;
-
+    
     this.onSubmit.emit(this.bookForm.value);
   }
 
   ngOnInit(): void {
 
     this.bookForm = new FormGroup({
-      _id: new FormControl(this.book ? this.book._id : '', [Validators.required]),
+      _id: new FormControl(this.book ? this.book._id : ''),
       title: new FormControl(this.book ? this.book.title : '', [Validators.required]),
       author: new FormControl(this.book ? this.book.author : '', [Validators.required]),
       pages: new FormControl(this.book ? this.book.pages : '', [Validators.required]),

@@ -46,25 +46,66 @@ a {
   font-style: italic;
 }
 
-.details-container .p-description { 
+.details-container .p-description {
+  background-color: rgba(204, 204, 204, 0.4);
+  border-radius: 10px;
+  padding: 10px;
   font-size: 0.9rem;
   margin-top: 20px;
   max-width: 400px;
+  max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
+.details-container .p-description::-webkit-scrollbar {
+  width: 5px;
+}
+
+.details-container .p-description::-webkit-scrollbar-track {
+  background-color: #dfdfdf;
+}
+
+.details-container .p-description::-webkit-scrollbar-thumb {
+  background-color: #4b66e1;
+  border-radius: 10px;
+}
+
+
 .details-container .actions button {
-  
-  width: 100px;
-  height: 50px;
+  width: 90px;
+  height: 35px;
   border-radius: 4px;
   margin: 15px;
   border: none;
   background-color: #4b66e1;
   color: #FFF;
   cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.details-container .actions button:nth-child(2) {
+  background-color: #e22a2a;
+}
+
+.details-container .actions button:hover {
+  background-color: #4b66e1d9;
+}
+
+.details-container .actions button:nth-child(2):hover {
+  background-color: #e22a2ad9;
+}
+
+.details-container .actions button:active {
+  background-color: #4b66e1;
+}
+
+.details-container .actions button:nth-child(2):active {
+  background-color: #e22a2a;
 }
 
 .pop-up-delete {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,12 +120,11 @@ a {
 }
 
 .pop-up-delete p {
-  white-space: nowrap;
   overflow: hidden;
   padding: 10px;
   text-align: center;
   font-size: .9rem;
-  animation: pop-up .15s linear;
+  animation: pop-up .1s linear;
 
 }
 
@@ -140,20 +180,18 @@ a {
 
 @keyframes pop-up {
   0% {
+    white-space: nowrap;
     width: 0;
+  }
+
+  90% {
+    white-space: nowrap;
+
   }
 
   100% {
     width: 360px;
     height: auto;
-  }
-}
-
-@keyframes fade {
-  0% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
+    white-space: initial;
   }
 }

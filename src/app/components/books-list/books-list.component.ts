@@ -5,6 +5,11 @@ import { IUser } from 'src/app/interfaces/IUser';
 import { BookService } from 'src/app/services/book/book.service';
 import { UserService } from 'src/app/services/user/user.service';
 
+interface City {
+  name: string,
+  code: string
+}
+
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
@@ -22,6 +27,9 @@ export class BooksListComponent implements OnInit {
     usua_senha: '',
   };
 
+  cities: City[];
+
+  selectedCity!: City;
   books!: any[];
 
   showBookForm = this.bookService.showBookFormCreate;
@@ -29,7 +37,15 @@ export class BooksListComponent implements OnInit {
   constructor(
     private userService: UserService,
     private bookService: BookService
-  ) { }
+  ) {
+    this.cities = [
+      {name: 'New York', code: 'NY'},
+      {name: 'Rome', code: 'RM'},
+      {name: 'London', code: 'LDN'},
+      {name: 'Istanbul', code: 'IST'},
+      {name: 'Paris', code: 'PRS'}
+  ];
+  }
 
   ngOnInit(): void {
 

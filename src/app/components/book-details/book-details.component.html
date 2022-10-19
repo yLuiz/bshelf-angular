@@ -24,6 +24,9 @@
     </div>
     <div class="container" *ngIf="bookService.showRemovePopUp">
       <div class="pop-up-delete">
+        <div class="container-delete" *ngIf="bookService.showLoaderCreateAndUpdate">
+          <div  class="loader top-5 left-0"></div>
+        </div>
         <p>Remover <span>{{book.title}}</span>?</p>
         <div class="options">
           <button (click)="deleteHandle()">Sim</button>
