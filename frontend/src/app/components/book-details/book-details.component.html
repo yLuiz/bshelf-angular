@@ -1,0 +1,38 @@
+<div *ngIf="showLoader else detailsBook" class="loader"></div>
+
+<app-book-edit></app-book-edit>
+
+<ng-template #detailsBook>
+  <a routerLink="">Voltar</a>
+  <section class="details-container">
+    <div class="image-content">
+      <div>
+        <img width="50px" src="{{api_url}}/uploads/{{book.image}}" alt="Imagem de {{book.title}}.">
+      </div>
+    </div>
+    <h1>{{book.title}}</h1>
+    <p class="p-description">
+      {{book.description}}
+    </p>
+    <div class="actions">
+      <button (click)="bookService.setShowBookFormEdit()">
+        Editar
+      </button>
+      <button (click)="bookService.setShowRemovePopUp()">
+        Deletar
+      </button>
+    </div>
+    <div class="container" *ngIf="bookService.showRemovePopUp">
+      <div class="pop-up-delete">
+        <div class="container-delete" *ngIf="bookService.showLoaderCreateAndUpdate">
+          <div  class="loader top-5 left-0"></div>
+        </div>
+        <p>Remover <span>{{book.title}}</span>?</p>
+        <div class="options">
+          <button (click)="deleteHandle()">Sim</button>
+          <button (click)="bookService.closeForm()">Não</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-template>

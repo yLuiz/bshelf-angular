@@ -1,0 +1,73 @@
+.pop-up-pass {
+
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  background-color: #FFF;
+  padding: 15px;
+  font-size: 14px;
+
+  border-radius: 8px;
+  position: absolute;
+  max-width: 300px;
+  width: 100%;
+  top: -250px;
+  right: 20px;
+
+  animation: fade .2s linear;
+}
+
+.close-btn {
+  position: absolute;
+  font-weight: 600;
+
+  top: -12px;
+  right: -12px;
+
+  border: none;
+  background-color: #FFF;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+@keyframes fade {
+  0% {
+    right: 400px;
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeII {
+  0% {
+    top: 0px;
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+    top: -350px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .pop-up-pass {
+    left: 50%;
+    margin-left: -50%;
+    top: -350px;
+    animation: fadeII .3s linear;
+    margin-bottom: 10px;
+  }
+}

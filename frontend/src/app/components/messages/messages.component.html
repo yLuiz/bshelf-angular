@@ -1,0 +1,7 @@
+<div 
+  *ngIf="messagesService.message"
+  class="validation-error warning-invalid pop-up-pass"
+>
+  <button class="close-btn" (click)="messagesService.clear()">x</button>
+  <p>{{messagesService.message}}</p>
+</div>

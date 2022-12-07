@@ -1,0 +1,36 @@
+<header class="header">
+
+  <nav>
+    <a routerLink="">BShelf</a>
+    <ul>      
+      
+      <li>
+        <button>
+          <i class="bi bi-bookshelf"></i>
+          Livros
+        </button>
+      </li>
+      
+      <li>
+        <button>
+          <i class="bi bi-book"></i>
+          Meus Livros
+        </button>
+      </li>
+
+      <li>
+        <button (click)="addBook()">
+          <i class="bi bi-journal-plus"></i>
+          Adicionar livro
+        </button>
+      </li>
+
+      <li>
+        <button class="logout-btn" (click)="logout()">
+          <i class="bi bi-box-arrow-right"></i>
+          Sair
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>

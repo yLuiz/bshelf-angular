@@ -1,0 +1,67 @@
+<div class="form-book">
+
+  <button class="btn-close" (click)="bookService.closeForm()">x</button>
+
+  <form (ngSubmit)="submitMethod()" [formGroup]="bookForm" #formDir="ngForm">
+
+    <div class="form-group file-input" >
+      <input class="input" id="image" type="file" (change)="onFileSelected($event)">
+      <label class="label-file" for="image">
+        <img id="image-up" [src]="imgUrl" alt="Adicionar imagem">
+      </label>
+    </div>
+
+    <div class="input-container">
+      <div class="form-group">
+        <input class="input" id="title" type="text" formControlName="title" placeholder=" ">
+        <label for="title">Título</label>
+      </div>
+      <div class="warning-invalid" *ngIf="title!.invalid && formDir.submitted">
+        <p>
+          Campo inválido!
+        </p>
+      </div>
+  
+      <div class="form-group">
+        <input class="input" id="author" type="text" formControlName="author" placeholder=" ">
+        <label for="author">Autor</label>
+      </div>
+      <div class="warning-invalid" *ngIf="author!.invalid && formDir.submitted">
+        <p>
+          Campo inválido!
+        </p>
+      </div>
+
+  
+      <div class="form-group">
+        <input class="input" id="pages" type="number" formControlName="pages" placeholder=" ">
+        <label for="pages">Páginas</label>
+      </div>
+      <div class="warning-invalid" *ngIf="pages!.invalid && formDir.submitted">
+        <p>
+          Campo inválido!
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <textarea class="input" id="description" type="text" formControlName="description" placeholder=" ">
+        </textarea>
+        <label for="description">Descrição</label>
+      </div>
+      <div class="warning-invalid" *ngIf="description!.invalid && formDir.submitted">
+        <p>
+          Campo inválido!
+        </p>
+      </div>
+
+  
+      <div class="form-group">
+        <input type="submit" value="Finalizar">
+      </div>
+    </div>
+  </form>
+  <div class="container-loader" *ngIf="bookService.showLoaderCreateAndUpdate">
+    <div class="loader"></div>
+  </div>
+</div>

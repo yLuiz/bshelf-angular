@@ -1,0 +1,8 @@
+<div class="container" *ngIf="bookService.showBookFormEdit">
+  <app-book-form 
+    [book]="book" 
+    (onSubmit)="updateHandler($event)"
+    class="form"
+  >
+  </app-book-form>
+</div>

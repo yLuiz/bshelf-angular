@@ -1,0 +1,29 @@
+
+<div class="login-container">
+  <form (ngSubmit)="submitMethod()" [formGroup]="autenticacaoForm" #formDir="ngForm">
+    <div class="form-group">
+      <label for="email">
+        Email
+      </label> 
+      <input type="text"  class="form-control" id="email" name="email" formControlName="email" />
+      <div *ngIf="email!.invalid && formDir.submitted" class="validation-error">Campo Usuário é obrigatório!</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input  type="password" class="form-control" id="password" name="password" formControlName="password" />
+      <div *ngIf="password!.invalid && formDir.submitted" class="validation-error">Campo Senha é obrigatório!</div>
+    </div>
+    <div class="link form-group">
+      <a routerLink="/register">Cadastrar-se</a>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="form-control" id="submit" value="Entrar"/>
+    </div>
+    <div class="pop-up" *ngIf="incorrectCredencials">
+      <p>Credenciais incorretas!</p>
+    </div>
+    <div class="pop-up" *ngIf="userNotExist">
+      <p>Usuário não encontrado!</p>
+    </div>
+  </form>
+</div>
