@@ -18,11 +18,6 @@ interface City {
 })
 export class BooksListComponent implements OnInit {
 
-
-  cities: City[];
-
-  selectedCity!: City;
-
   // api_url = 'https://api-bshelf.herokuapp.com'
   showLoader = true;
 
@@ -41,13 +36,6 @@ export class BooksListComponent implements OnInit {
     private userService: UserService,
     private bookService: BookService
   ) {
-    this.cities = [
-      { name: 'New York', code: 'NY'},
-      { name: 'Rome', code: 'RM'},
-      { name: 'London', code: 'LDN'},
-      { name: 'Istanbul', code: 'IST'},
-      { name: 'Paris', code: 'PRS'}
-    ];
   }
 
   ngOnInit(): void {

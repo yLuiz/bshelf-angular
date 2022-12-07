@@ -11,8 +11,6 @@ export default class ShowUserBooksService {
       
       if(!books) throw new AppError("Livro não encontrado!", 404);
 
-      console.log(_id)
-
       return {
         status: 201,
         message: "Livros listados com sucesso!",

@@ -9,7 +9,6 @@
   </div>
 
   <ng-template #bookList>
-    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="City" optionLabel="name"></p-dropdown>
     <ul class="books-list">
         <li class="book-item" *ngFor="let book of books">
           <a routerLink="book/{{book._id}}">

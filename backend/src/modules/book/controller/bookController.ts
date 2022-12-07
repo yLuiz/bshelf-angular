@@ -66,8 +66,6 @@ export default class BookController {
     const { title, author, description, pages } = request.body
     const image = request.file;
 
-    console.log(image?.filename)
-
     const updateBookService = new UpdateBookService();
     const updatedBook = await updateBookService.execute(request.user.id, {
       _id,
