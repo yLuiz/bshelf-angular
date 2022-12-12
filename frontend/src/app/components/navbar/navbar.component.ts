@@ -23,6 +23,14 @@ export class NavbarComponent implements OnInit {
     this.bookService.setShowBookFormCreate();
   }
 
+  goToMyBooks() {
+    this.router.navigate(['mybooks']);
+  }
+
+  goHome() {
+    this.router.navigate(['']);
+  }
+
   ngOnInit(): void {
   }
 

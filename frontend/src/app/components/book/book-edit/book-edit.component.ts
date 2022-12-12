@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBook } from 'src/app/interfaces/IBook';
 import { BookService } from 'src/app/services/book/book.service';
-import { MessagesService } from '../messages/messages.service';
+import { MessagesService } from '../../messages/messages.service';
 
 @Component({
   selector: 'app-book-edit',
@@ -11,6 +11,7 @@ import { MessagesService } from '../messages/messages.service';
   styleUrls: ['./book-edit.component.css']
 })
 export class BookEditComponent implements OnInit {
+  @Input()
   book!: IBook;
 
   constructor(
@@ -47,15 +48,15 @@ export class BookEditComponent implements OnInit {
 
   ngOnInit(): void {
     const bookId: any = this.route.snapshot.paramMap.get('id');
-    this.bookService.getBook(bookId).subscribe({
-      next: (response) => {
-        this.book = response.data;
-      },
-      error: (err) => {
-        this.messagesService.add('Houve um error: ' + err.message);
-        console.log(err);
-      }
-    })
+    // this.bookService.getBook(bookId).subscribe({
+    //   next: (response) => {
+    //     this.book = response.data;
+    //   },
+    //   error: (err) => {
+    //     this.messagesService.add('Houve um error: ' + err.message);
+    //     console.log(err);
+    //   }
+    // })
   }
 
 }

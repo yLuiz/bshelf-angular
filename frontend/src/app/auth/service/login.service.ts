@@ -1,11 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IUser } from 'src/app/interfaces/IUser';
-import { IResponse } from 'src/app/interfaces/IResponse';
-
 
 interface IRequest {
   email: string;
@@ -33,16 +30,16 @@ export class LoginService {
   }
 
   async getDateExpiresToken(token: string): Promise<Date | null> {
-      const decoded: IPayload = await jwt_decode(token);
-      if(decoded.exp === undefined) {
-        return null;
-      }
+    const decoded: IPayload = await jwt_decode(token);
+    if(decoded.exp === undefined) {
+      return null;
+    }
 
-      const date = new Date(0);
+    const date = new Date(0);
 
-      date.setUTCSeconds(decoded.exp);
+    date.setUTCSeconds(decoded.exp);
 
-      return date;
+    return date;
   }
 
   async isValidToken(token: string | null) {

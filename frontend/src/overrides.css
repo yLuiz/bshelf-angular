@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css"; */
+/* @import "../node_modules/primeicons/primeicons.css"; */
+/* @import "../node_modules/primeng/resources/primeng.min.css"; */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import './app/components/book/book-list/books-list.component.css';
+
+
+.dialog {
+  width: 800px;
+  height: 100%;
+}
+
+.p-card {
+  margin: 10px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.p-card .p-card-body {
+  padding: 0 !important;
+}
+
+.p-card .p-card-content {
+  padding: 0 !important;
+}
+
+@media (max-width: 868px) {
+  .dialog {
+    width: calc(100vw - 50px) !important;
+  }
+}
+
+@media (max-width: 328px) {
+  .dialog {
+    position: absolute !important;
+    width: calc(100vw) !important;
+    max-height: 100% !important;
+    bottom: 0 !important;
+  }
+
+}

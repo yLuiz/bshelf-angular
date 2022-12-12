@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IBook } from '../../interfaces/IBook'
+import { IBook } from '../../../interfaces/IBook'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookService } from 'src/app/services/book/book.service';
 import { environment } from 'src/environments/environment';

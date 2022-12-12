@@ -1,0 +1,30 @@
+<section class="book-list-container">
+  <h1>Bem vindo, {{user.name}}</h1>
+  <h2>Seus livros:</h2>
+
+  <div *ngIf="showLoader else bookList" class="loader"></div>
+
+  <div *ngIf="!noBooks && !showLoader" class="no-books">
+    <p>Não há livros cadastrados com seu usuário!</p>
+  </div>
+
+  <ng-template #bookList>
+    <div class="book-list">
+      <p-card *ngFor="let book of books">
+        <a routerLink="/book/{{book._id}}">
+          <div class="book-image">
+            <img src="{{api_url}}/uploads/{{book.image}}" alt="">
+          </div>
+        </a>
+        <div class="book-details">
+          <p>
+            {{book.title}}
+          </p>
+          <div class="book-rating">
+            <ngx-star-rating [id]="book.title"></ngx-star-rating>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </ng-template>
+</section>

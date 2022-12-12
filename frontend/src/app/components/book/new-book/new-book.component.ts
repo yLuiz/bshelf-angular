@@ -16,9 +16,6 @@ export class NewBookComponent implements OnInit {
   ) { }
 
   createHandler(book: IBook) {
-
-    console.log(book);
-
     const bookFormData = new FormData();
     bookFormData.append('title', book.title);
     bookFormData.append('author', book.author);

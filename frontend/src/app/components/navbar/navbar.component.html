@@ -5,14 +5,14 @@
     <ul>      
       
       <li>
-        <button>
-          <i class="bi bi-bookshelf"></i>
+        <button (click)="goHome()">
+          <i class="bi bi-journals"></i>
           Livros
         </button>
       </li>
       
       <li>
-        <button>
+        <button (click)="goToMyBooks()">
           <i class="bi bi-book"></i>
           Meus Livros
         </button>
@@ -20,7 +20,7 @@
 
       <li>
         <button (click)="addBook()">
-          <i class="bi bi-journal-plus"></i>
+          <i class="bi bi-plus-square"></i>
           Adicionar livro
         </button>
       </li>

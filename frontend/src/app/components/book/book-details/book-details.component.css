@@ -20,24 +20,24 @@ a {
   align-items: center;
   justify-content: center;
   width: 210px;
-  height: 300px;
-  background-color: #4b66e1;
   border-radius: 8px;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
 .image-content > div {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100% - 20px);
+  width: calc(100% - 10px);
   border-radius: 8px;
   background-color: #fff;
-  padding: 8px;
 }
 
 .image-content img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 6px;
+  border: 6px solid #4b66e1;
 }
 
 .details-container h1 {

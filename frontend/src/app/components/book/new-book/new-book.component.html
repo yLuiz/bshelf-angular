@@ -1,0 +1,14 @@
+
+
+<p-dialog 
+  [draggable]="false"
+  styleClass="dialog" header="Criar" [(visible)]="bookService.showBookFormCreate">
+  <app-book-form
+    (onSubmit)="createHandler($event)"
+    class="form"
+  >
+  </app-book-form>
+</p-dialog>
+<!-- <div  *ngIf="bookService.showBookFormCreate">
+  
+</div> -->

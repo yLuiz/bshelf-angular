@@ -1,9 +1,16 @@
 <div *ngIf="showLoader else detailsBook" class="loader"></div>
 
-<app-book-edit></app-book-edit>
+<p-dialog 
+  [draggable]="false"
+  styleClass="dialog" header="Editar" [(visible)]="bookService.showBookFormEdit">
+  <app-book-edit
+    *ngIf="!showLoader"
+    [book]="book"  
+  ></app-book-edit>
+</p-dialog>
 
 <ng-template #detailsBook>
-  <a routerLink="">Voltar</a>
+  <a routerLink="/mybooks">Voltar</a>
   <section class="details-container">
     <div class="image-content">
       <div>
@@ -21,6 +28,7 @@
       <button (click)="bookService.setShowRemovePopUp()">
         Deletar
       </button>
+      <a href="https://www.google.com/search?q={{book.title}} {{book.author}} +livro&tbm=shop" target="_blank">Pesquisar livro</a>
     </div>
     <div class="container" *ngIf="bookService.showRemovePopUp">
       <div class="pop-up-delete">

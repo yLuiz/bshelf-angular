@@ -27,6 +27,8 @@ nav ul li {
 
 nav ul li button {
 
+  font-family: Arial, Helvetica, sans-serif;
+
   display: flex;
   align-items: center;
   gap: 5px;
@@ -43,10 +45,11 @@ nav ul li button {
   transition: all .1s ease-in-out;
 }
 
-nav ul li button i{
+nav ul li button i {
+  font-size: 1.15rem;
   position: absolute;
-  left: 0px;
-  top: 3px;
+  left: -4px;
+  top: 0px;
 }
 
 nav a {

@@ -21,7 +21,7 @@ export class BookDetailsComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public bookService: BookService
+    public bookService: BookService,
     ) { }
     
     deleteHandle() {
