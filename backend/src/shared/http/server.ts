@@ -10,7 +10,9 @@ app.use(
   express.urlencoded({ extended: true })
 );
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 
 // This way we can access all the uploads files
 app.use('/uploads', express.static('uploads'));
@@ -37,7 +39,7 @@ app.get('/api', (req, res) => {
   res.status(200).json({ message: "API BShelf" });
 });
 
-app.listen(3333, () => {
+app.listen(process.env.PORT || 3333, () => {
   console.log(`
   ==============================================
   🚀 API is running in http://localhost:3333 🚀
