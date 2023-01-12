@@ -1,5 +1,5 @@
 import AppError from "@shared/errors/AppError";
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 require('dotenv').config();
 
 import { createConnection } from "mongoose";

@@ -2,7 +2,7 @@ import isAuthenticated from '@shared/http/middleware/isAuthenticated';
 import { Router } from 'express';
 import express from 'express';
 import BookController from '../controller/bookController';
-import uploadConfig from '@cofing/upload';
+import uploadConfig from '@config/upload';
 import multer from 'multer';
 
 const bookRouter = Router();

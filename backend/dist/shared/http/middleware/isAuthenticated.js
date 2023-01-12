@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = isAuthenticated;
 var _AppError = _interopRequireDefault(require("../../errors/AppError"));
 var _jsonwebtoken = require("jsonwebtoken");
-var _auth = _interopRequireDefault(require("@cofing/auth"));
+var _auth = _interopRequireDefault(require("../../../config/auth"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function isAuthenticated(request, response, next) {
   const hasToken = request.headers.authorization;

@@ -1,7 +1,7 @@
 import AppError from "@shared/errors/AppError";
 import User from "../model/User.model";
 import bcryptjs from "bcryptjs";
-import authConfig from "@cofing/auth";
+import authConfig from "@config/auth";
 import { sign } from "jsonwebtoken";
 import IUser from "../model/IUser";
 import IResponse from "src/interfaces/IResponse";

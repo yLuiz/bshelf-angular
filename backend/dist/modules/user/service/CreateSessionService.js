@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _User = _interopRequireDefault(require("../model/User.model"));
 var _bcryptjs = _interopRequireDefault(require("bcryptjs"));
-var _auth = _interopRequireDefault(require("@cofing/auth"));
+var _auth = _interopRequireDefault(require("../../../config/auth"));
 var _jsonwebtoken = require("jsonwebtoken");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 class CreateSessionService {
