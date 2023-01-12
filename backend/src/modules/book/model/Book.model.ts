@@ -1,8 +1,7 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
-import { Schema, model } from "mongoose"
-import IBook from "./IBook"
-
+import { Schema, model } from "mongoose";
+import IBook from "./IBook";
 
 const BookSchema = new Schema<IBook>({
     title: {
@@ -25,10 +24,9 @@ const BookSchema = new Schema<IBook>({
       type: String, 
       // required: true
     },
-    user: Object,
+    user: Object
   },
   { timestamps: true },
-  { cascade: true }
 )
 
 const Book = model<IBook>('Book', BookSchema);

@@ -1,0 +1,15 @@
+{
+  "name": "api-bshelf",
+  "version": 2,
+  "public": true,
+  "build": {
+    "src": "build/shared/http/server.js",
+    "use": "@vercel/node"
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "build/shared/http/server.js"
+    }
+  ]
+}
