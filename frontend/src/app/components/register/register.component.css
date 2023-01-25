@@ -5,14 +5,31 @@
   width: 100%;
   height: 100vh;
 
-  background: #729bd6e5; 
+  background: var(--bg-main); 
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 5px;
+  padding: 0px;
+  height: 80%;
+  background-color: #fff;
 }
 
 .register-container form a {
   border-radius: 50px;
   padding: 5px 8px;
   border: 1px solid #1c7aff;
-  font-size: 14px;
+  font-size: 0.7rem;
   font-weight: 600;
   text-decoration: none;
   color: #1c7aff;
@@ -27,38 +44,30 @@
   color: #FFF;
 }
 
-.register-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.register-title {
+  position: absolute;
+  top: 5em;
+}
 
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  border-radius: 8px;
-  max-width: 600px;
-  width: 100%;
-  margin: 0 5px;
-  padding: 10px;
-  height: 400px;
-  background-color: #fff;
+.register-title h1 {
+  font-size: 1.4rem;
+
 }
 
 .form-group {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 100%;
+  padding: 0 2em;
 }
 
-.form-group input { 
-  width: 100%;
-  outline: none;
-  height: 30px;
-  margin-bottom: 10px;
-  padding-left: 5px;
-  border-radius: 3px;
-  border: 1px solid #838383;
+.form-group label {
+  padding-left: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .form-group input.is-invalid {
@@ -67,6 +76,7 @@
 
 .form-group input[type="submit"] {
   border: none;
+  margin: 15px 0;
   background-color: #00732c;
   color: #fff;
   height: 40px;

@@ -1,0 +1,43 @@
+.pop-up {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column !important;
+  max-width: 550px;
+  width: 60vw;
+  top: 40px;
+
+  height: 80px;
+  background-color: #ff5454ce;
+  border-radius: 5px;
+
+  animation: pop-up .12s linear;
+  color: #fff;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pop-up p:nth-of-type(1) {
+  padding: 10px 0;
+  font-weight: 600;
+  text-align: center;
+  width: 98%;
+  border-bottom: 1px solid #ffcccc7b;
+}
+
+.pop-up p:nth-of-type(2) {
+  font-size: 0.9rem;
+  padding: 10px 0;
+}
+
+
+@keyframes pop-up {
+  0% {
+    top: -10px;
+    opacity: 40%;
+  }
+
+  100% {
+    top: 40px;
+  }
+}

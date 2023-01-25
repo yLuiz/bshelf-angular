@@ -2,23 +2,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
-  background: #729bd6e5;
+  background: var(--bg-main);
   padding: 0 20px;
 }
 
+.title-container img {
+  margin-top: 1em;
+  width: 120px;
+}
+
+.title-container h1 {
+  position: absolute;
+  font-family: sans-serif;
+  color: #000;
+  top: 3.5em;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 2em;
+}
+
 .login-container form {
+
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 450px;
   width: 100%;
-  height: 300px;
+  height: 80%;
   border-radius: 12px;
   background-color: #FFF;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.login-container form label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  padding-left: 5px;
+  padding-bottom: 5px;
 }
 
 .form-group {
@@ -70,58 +99,47 @@
 .form-group input {
   min-width: 100%;
   height: 30px;
-  padding-left: 6px;
+  padding: 1.4em;
+  padding-left: 1em;
   outline: none;
-  border: 1px solid #797979;
+  border: 1px solid #bebebe;
+  background-color: #fff;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
 }
 
-.form-group input[type="submit"] {
+.form-group button[type="submit"] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   height: 40px;
+  padding: 0;
   border: none;
-  padding-left: 0;
+  margin-top: 2em;
   background-color: rgb(74, 74, 255);
   color: #FFF;
   cursor: pointer;
 }
 
-.form-group input[type="submit"]:hover {
+.form-group button[type="submit"] .loader {
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+}
+
+.form-group button[type="submit"] .loader::before {
+  border: 3px solid #fff;
+}
+
+.form-group button[type="submit"]:hover {
   background-color: rgb(61, 61, 200);
 }
 
 .form-group input:not([type="submit"]):hover,
 .form-group input:not([type="submit"]):focus {
   border-color: #26a0da;
-}
-
-.pop-up {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 450px;
-  width: 100%;
-  top: 80px;
-
-  height: 50px;
-  background-color: #FFF;
-  border-radius: 10px;
-  animation: pop-up .12s linear;
-  color: #ff3333;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-
-  text-shadow: 0 0 4px rgba(255, 51, 51, 0.6);
-}
-
-
-@keyframes pop-up {
-  0% {
-    top: -10px;
-    opacity: 40%;
-  }
-
-  100% {
-    top: 80px;
-  }
+  box-shadow: 0 0 10px #26a1da9e;
 }

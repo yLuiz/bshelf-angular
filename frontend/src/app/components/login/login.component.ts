@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,7 +27,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  apiConnected: boolean = false;
+  requestDone: boolean = false;
   autenticacaoForm!: FormGroup;
+  isLoading: boolean = false;
   incorrectCredencials = false;
   userNotExist = false;
 
@@ -39,6 +43,8 @@ export class LoginComponent implements OnInit {
 
     if(this.autenticacaoForm.invalid) return;
 
+    this.isLoading = true;
+
     this.onSubmit.emit(this.autenticacaoForm.value);
 
     this.loginService.login({ email, password }).subscribe({
@@ -46,11 +52,15 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this.incorrectCredencials = false;
         this.router.navigate(['']);
+        this.isLoading = false;
       },
       error: (error) => {
-        if(error.status === 403) {
+        console.log(error);
+        this.isLoading = false;
+        if(error.status === 401) {
           
           this.incorrectCredencials = true;
+
           setTimeout(() => {
             this.incorrectCredencials = false;
           }, 2000)
@@ -58,7 +68,7 @@ export class LoginComponent implements OnInit {
         } else if(error.status === 404) {
           this.userNotExist = true;
           setTimeout(() => {
-            this.userNotExist = false;
+            this.userNotExist = true;
           }, 2000)
         }
       }
@@ -71,8 +81,29 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
-  }
 
+    this.loginService.login({
+      email: "email@email.com",
+      password: "password"
+    }).subscribe({
+      next: () => {
+        return;
+      },
+      error: (error: HttpErrorResponse) => {
+
+        if (error.status === 401) {
+          this.apiConnected = true;
+        }
+
+        if (error.status === 0) {
+          this.apiConnected = false;
+        }
+
+        this.requestDone = true;
+      }
+    })
+
+  }
 
   get email() {
     return this.autenticacaoForm.get('email');

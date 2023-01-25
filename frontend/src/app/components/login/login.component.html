@@ -1,11 +1,14 @@
-
-<div class="login-container">
+<div *ngIf="apiConnected && requestDone" class="login-container">
   <form (ngSubmit)="submitMethod()" [formGroup]="autenticacaoForm" #formDir="ngForm">
+    <div class="title-container">
+      <h1>Faça seu login</h1>
+      <img src="../../../assets/img/book-icon.svg" alt="Book">
+    </div>
     <div class="form-group">
       <label for="email">
         Email
       </label> 
-      <input type="text"  class="form-control" id="email" name="email" formControlName="email" />
+      <input type="text"  class="form-control inputStyle" id="email" name="email" formControlName="email" />
       <div *ngIf="email!.invalid && formDir.submitted" class="validation-error">Campo Usuário é obrigatório!</div>
     </div>
     <div class="form-group">
@@ -17,13 +20,25 @@
       <a routerLink="/register">Cadastrar-se</a>
     </div>
     <div class="form-group">
-      <input type="submit" class="form-control" id="submit" value="Entrar"/>
+      <button type="submit" class="form-control" id="submit">
+        <span class="loader" *ngIf="isLoading"></span>
+        <span *ngIf="!isLoading">Enviar</span>
+      </button>
     </div>
     <div class="pop-up" *ngIf="incorrectCredencials">
+      <p>Error</p>
       <p>Credenciais incorretas!</p>
     </div>
     <div class="pop-up" *ngIf="userNotExist">
+      <h1>Error</h1>
       <p>Usuário não encontrado!</p>
     </div>
   </form>
+</div>
+
+<div *ngIf="!apiConnected && requestDone" class="login-container">
+  <h2 [style]="{
+    color: '#FFF',
+    width: '60vw'
+  }">O servidor não está respondendo no momento.<br>Tente outra hora</h2>
 </div>

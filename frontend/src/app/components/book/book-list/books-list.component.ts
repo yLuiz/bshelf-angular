@@ -27,7 +27,7 @@ export class BooksListComponent implements OnInit {
     password: ''
   };
   books!: IBook[];
-  api_url = environment.api_url
+  api_url = environment.api_url;
   noBooks: boolean = true;
 
   showBookForm = this.bookService.showBookFormCreate;
@@ -48,7 +48,7 @@ export class BooksListComponent implements OnInit {
       response.subscribe(user => this.user = user.data);
     });
 
-    this.bookService.getAllBooks().subscribe({
+    this.bookService.getAllUserBooks().subscribe({
       next: response => {
         if(response.data) {
           this.books = response.data.map(book => book);

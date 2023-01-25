@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import './popup.css';
+@import './components.css';
+
+:root {
+  --bg-main: #6088ffe5;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +30,7 @@ a {
   font-size: 12px;
   font-weight: 600;
   color: #d33434;
-  margin: -10px 0 5px;
+  margin: 5px 0 5px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

@@ -50,6 +50,17 @@ export class BookService {
   }
 
   getAllBooks(): Observable<IResponse<IBook[]>> {
+    return this.http.get<IResponse<IBook[]>>(environment.api_url+ '/book', {
+      headers: {
+        // 'Content-Type': 'application/json',
+        // 'Accept': 'application/json',
+        // 'Access-Control-Allow-Headers': 'Content-Type',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    });
+  }
+
+  getAllUserBooks(): Observable<IResponse<IBook[]>> {
     return this.http.get<IResponse<IBook[]>>(environment.api_url+ '/book/user', {
       headers: {
         // 'Content-Type': 'application/json',
