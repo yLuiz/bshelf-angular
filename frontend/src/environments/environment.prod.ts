@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: "https://api-bshelf-production.up.railway.app"
+  api_url: "https://bshelf-angular-production.up.railway.app"
 };
